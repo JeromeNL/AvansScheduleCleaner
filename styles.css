@@ -1,8 +1,43 @@
-body{
-    background-color: #C6002A;
+/* CSS Reset */
+html {
+    box-sizing: border-box;
+    font-size: 16px;
 }
 
-.titleText{
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+
+ol, ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Custom CSS */
+body{
+    background-color: #C6002A;
+    margin: 15px;
+}
+
+.mainDiv {
+    width: 275px;
+}
+
+.textWhite {
     color: white;
+}
+
+.fontItalic {
     font-style: italic;
 }
