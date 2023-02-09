@@ -1,5 +1,18 @@
 
+// At refresh
 window.addEventListener("load", () => {
+    loadFullProcess();
+});
+
+// At next/previous week
+let previousWeekButton = document.querySelector('[title="Vorige week"]')
+let nextWeekButton = document.querySelector('[title="Volgende week"]');
+
+previousWeekButton.addEventListener ('click', function(event) {
+    loadFullProcess();
+});
+
+nextWeekButton.addEventListener ('click', function(event) {
     loadFullProcess();
 });
 
@@ -17,13 +30,13 @@ function loadAllClassesForWeek() {
 
         let allClassesForWeek = document.getElementsByClassName('wc-cal-event ui-corner-all');
         console.log(allClassesForWeek);
-        removeSubjectFromTimetableAtRefresh(allClassesForWeek);
+        removeSubjectFromTimetable(allClassesForWeek);
 
     }, 2000)
 }
 
 
-function removeSubjectFromTimetableAtRefresh(allClasses){
+function removeSubjectFromTimetable(allClasses){
     for(let index = 0; index < subjectsToFilter.length; index++){
         for(let i = 0; i < allClasses.length; i++){
             if(allClasses[i].innerText.includes(subjectsToFilter[index])){
