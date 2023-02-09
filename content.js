@@ -5,8 +5,10 @@ window.addEventListener("load", () => {
 });
 
 // At next/previous week
-let previousWeekButton = document.querySelector('[title="Vorige week"]')
+let previousWeekButton = document.querySelector('[title="Vorige week"]');
 let nextWeekButton = document.querySelector('[title="Volgende week"]');
+let otherButtons = document.querySelectorAll('.ui-button-text');
+
 
 previousWeekButton.addEventListener ('click', function(event) {
     loadFullProcess();
@@ -15,6 +17,13 @@ previousWeekButton.addEventListener ('click', function(event) {
 nextWeekButton.addEventListener ('click', function(event) {
     loadFullProcess();
 });
+
+for(let i = 0; i < otherButtons.length; i++){
+    otherButtons[i].addEventListener ('click', function(event) {
+        loadFullProcess();
+    });
+}
+
 
 let subjectsToFilter = ['SWEN4', 'WEBPHP', 'WEBJS'];
 

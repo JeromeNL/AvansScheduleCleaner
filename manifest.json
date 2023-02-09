@@ -1,7 +1,24 @@
 {
-  "manifest_version": 3,
+
   "name": "Avans Schedule Cleaner",
+  "description": "Filter the classes that are not relevant to you",
   "version": "0.1.0",
+  "manifest_version": 3,
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/favicon-16x16.png",
+      "32": "images/favicon-32x32.png"
+    }
+  },
+  "icons": {
+    "16": "images/favicon-16x16.png",
+    "32": "images/favicon-32x32.png",
+    "48": "images/favicon-48x48.png",
+    "128": "images/favicon-128x128.png"
+  },
+
 
   "content_scripts": [
     {
