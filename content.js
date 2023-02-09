@@ -3,6 +3,8 @@ window.addEventListener("load", () => {
     loadFullProcess();
 });
 
+let subjectsToFilter = ['SWEN4', 'WEBPHP', 'WEBJS'];
+
 
 function loadFullProcess() {
     loadAllClassesForWeek();
@@ -15,18 +17,18 @@ function loadAllClassesForWeek() {
 
         let allClassesForWeek = document.getElementsByClassName('wc-cal-event ui-corner-all');
         console.log(allClassesForWeek);
-        removeSubjectFromTimetable('WEBPHP', allClassesForWeek);
+        removeSubjectFromTimetableAtRefresh(allClassesForWeek);
 
     }, 2000)
 }
 
 
-function removeSubjectFromTimetable(subject, allClasses){
-    console.log(typeof allClasses)
-
-    for(let i = 0; i < allClasses.length; i++){
-        if(allClasses[i].innerText.includes(subject)){
-            allClasses[i].remove();
+function removeSubjectFromTimetableAtRefresh(allClasses){
+    for(let index = 0; index < subjectsToFilter.length; index++){
+        for(let i = 0; i < allClasses.length; i++){
+            if(allClasses[i].innerText.includes(subjectsToFilter[index])){
+                allClasses[i].remove();
+            }
         }
     }
 }
