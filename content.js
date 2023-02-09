@@ -1,14 +1,15 @@
-
-// At refresh
-window.addEventListener("load", () => {
-    loadFullProcess();
-});
-
-// At next/previous week
+let subjectsToFilter = ['SWEN4', 'WEBJS'];
 let previousWeekButton = document.querySelector('[title="Vorige week"]');
 let nextWeekButton = document.querySelector('[title="Volgende week"]');
 let otherButtons = document.querySelectorAll('.ui-button-text');
 
+function loadFullProcess() {
+    loadAllClassesForWeek();
+}
+
+window.addEventListener("load", () => {
+    loadFullProcess();
+});
 
 previousWeekButton.addEventListener ('click', function(event) {
     loadFullProcess();
@@ -22,14 +23,6 @@ for(let i = 0; i < otherButtons.length; i++){
     otherButtons[i].addEventListener ('click', function(event) {
         loadFullProcess();
     });
-}
-
-
-let subjectsToFilter = ['SWEN4', 'WEBPHP', 'WEBJS'];
-
-
-function loadFullProcess() {
-    loadAllClassesForWeek();
 }
 
 
@@ -54,3 +47,4 @@ function removeSubjectFromTimetable(allClasses){
         }
     }
 }
+
