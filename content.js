@@ -1,26 +1,32 @@
 
 window.addEventListener("load", () => {
-    setTimeout(function() {
-    console.log("Chrome Extensie wordt herkend!");
-
-    let allClassesForWeek = document.getElementsByClassName('wc-cal-event ui-corner-all');
-
-    let allFullDays = document.getElementsByClassName('wc-full-height-column wc-day-column-inner');
-    console.log(allClassesForWeek);
-
-    allClassesForWeek.item(0).remove();
-
-
-    }, 2000)
+    loadFullProcess();
 });
 
 
+function loadFullProcess() {
+    loadAllClassesForWeek();
+}
 
 
-function loadAllClasses() {
-    let allClassesForWeek = document.getElementsByClassName('wc-cal-event ui-corner-all');
-    let allFullDays = document.getElementsByClassName('wc-full-height-column wc-day-column-inner');
+function loadAllClassesForWeek() {
+    setTimeout(function() {
+        console.log("Chrome Extensie wordt herkend!");
 
-    console.log(allClassesForWeek)
-    console.log(allClassesForWeek.item(0))
+        let allClassesForWeek = document.getElementsByClassName('wc-cal-event ui-corner-all');
+        console.log(allClassesForWeek);
+        removeSubjectFromTimetable('WEBPHP', allClassesForWeek);
+
+    }, 2000)
+}
+
+
+function removeSubjectFromTimetable(subject, allClasses){
+    console.log(typeof allClasses)
+
+    for(let i = 0; i < allClasses.length; i++){
+        if(allClasses[i].innerText.includes(subject)){
+            allClasses[i].remove();
+        }
+    }
 }
