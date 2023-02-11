@@ -17,8 +17,6 @@
     "48": "images/favicon-48x48.png",
     "128": "images/favicon-128x128.png"
   },
-
-
   "content_scripts": [
     {
       "matches": ["*://rooster.avans.nl/*"],
@@ -26,5 +24,4 @@
       "js": ["content.js"]
     }
   ]
-
 }

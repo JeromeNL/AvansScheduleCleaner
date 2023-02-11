@@ -1,7 +1,7 @@
-
 let addBtn = document.getElementById('submitBtn');
 let clearBtn = document.getElementById('clearBtn')
 let allSubjects = {"subjects": []};
+
 addBtn.addEventListener('click', function() {
     const subjectInput = document.querySelector('#firstSubject').value;
     if(checkValidInput(subjectInput)){
@@ -12,7 +12,6 @@ addBtn.addEventListener('click', function() {
 clearBtn.addEventListener('click', function() {
     chrome.storage.sync.get(['SubjectsList']).then((result) => {
         chrome.storage.sync.remove("SubjectsList", function () {
-            console.log("Key subjectslist removed");
         });
     });
 
@@ -26,16 +25,11 @@ clearBtn.addEventListener('click', function() {
                 for(let i = 0; i < result.SubjectsList.subjects.length; i++){
                     allSubjects.subjects.push(result.SubjectsList.subjects[i]);
                 };
-                storage.remove("SubjectsList", function () {
-                    console.log("Key subjectslist removed");
-                });
+                storage.remove("SubjectsList", function () {});
             };
                 allSubjects.subjects.push(subjectString)
                 storage.set({"SubjectsList": allSubjects}, function () {
-                    console.log("Key subjectsList has been set")
-                    chrome.storage.sync.get(['SubjectsList']).then((result) => {
-                        console.log("CURRENT subjets: " + JSON.stringify(result));
-                    });
+                    chrome.storage.sync.get(['SubjectsList']).then((result) => {});
                 });
         });
     }
@@ -46,9 +40,7 @@ clearBtn.addEventListener('click', function() {
             for(let i = 0; i < result.SubjectsList.subjects.length; i++){
                 allSubjects.subjects.push(result.SubjectsList.subjects[i]);
             };
-            chrome.storage.sync.remove("SubjectsList", function () {
-                console.log("Key subjectslist removed");
-            });
+            chrome.storage.sync.remove("SubjectsList", function () {});
         };
 
         for(let i = 0; i < allSubjects.subjects.length; i++){
@@ -58,10 +50,7 @@ clearBtn.addEventListener('click', function() {
             }
         }
             chrome.storage.sync.set({"SubjectsList": allSubjects}, function () {
-            console.log("Key subjectsList has been set")
-            chrome.storage.sync.get(['SubjectsList']).then((result) => {
-                console.log("CURRENT subjets: " + JSON.stringify(result));
-            });
+            chrome.storage.sync.get(['SubjectsList']).then((result) => {});
         });
     });
 }
