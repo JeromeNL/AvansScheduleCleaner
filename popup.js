@@ -3,7 +3,9 @@ let btn = document.getElementById('submitBtn');
 let allSubjects = {"subjects": []};
 btn.addEventListener('click', function() {
     const subjectInput = document.querySelector('#firstSubject').value;
-    addSubject(subjectInput)
+    if(checkValidInput(subjectInput)){
+        addSubject(subjectInput)
+    }
 });
 
     function addSubject(subjectString) {
@@ -26,4 +28,11 @@ btn.addEventListener('click', function() {
                     });
                 });
         });
+    }
+
+    function checkValidInput(newInput){
+        if(newInput == ""){
+            return false
+        }
+        return true;
     }
