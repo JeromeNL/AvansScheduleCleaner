@@ -68,6 +68,21 @@ body{
     font-size: 15px;
 }
 
+.horizontalButtons {
+    display: inline-block;
+}
+
+#clearBtn {
+    background-color: #59becc;
+    color: white;
+    width: 85px;
+    height: 35px;
+    border-radius: 20px;
+    border: none;
+    font-size: 15px;
+    margin-right: 125px;
+}
+
 #submitBtn {
     background-color: #C6002A;
     color: white;
@@ -76,7 +91,6 @@ body{
     border-radius: 20px;
     border: none;
     font-size: 15px;
-    margin-left: 200px;
 }
 
 #submitBtn:hover {
@@ -85,4 +99,12 @@ body{
 
 #submitBtn:active {
     background-color: #7d001b;
+}
+
+#clearBtn:hover {
+    background-color: #42939e;
+}
+
+#clearBtn:active {
+    background-color: #306d75;
 }
