@@ -32,6 +32,11 @@ function addSubjectsToFilter(){
     setTimeout(function(){
         chrome.storage.sync.get(['SubjectsList']).then((result) => {
             console.log("BINNENKOMEND RESULT: " + JSON.stringify(result[Object.keys(result)[0]]))
+
+            if(typeof result[Object.keys(result)[0]] == "undefined"){
+                console.log("DIT BESTATA HELEMAAL NIET!!")
+                return;
+            }
             let waardes = Object.values(result[Object.keys(result)])
             console.log("Waarde: " + JSON.stringify(waardes));
 
@@ -73,9 +78,9 @@ function removeSubjectFromTimetable(allClasses){
     for(let index = 0; index < lengte; index++){
         console.log("index: " + index);
         for(let i = 0; i < allClasses.length; i++){
-            console.log("i: " + i)
-            console.log("content: " + subjectsToFilter[0][index]);
-            console.log("Allclasses.innertext: " + allClasses[i].innerText)
+            //console.log("i: " + i)
+            //console.log("content: " + subjectsToFilter[0][index]);
+            //console.log("Allclasses.innertext: " + allClasses[i].innerText)
             if(allClasses[i].innerText.includes(subjectsToFilter[0][index])){
                 allClasses[i].remove();
                 console.log("Item REMOVED: " + allClasses[i])
