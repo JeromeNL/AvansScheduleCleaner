@@ -31,12 +31,6 @@ body{
     margin: 15px;
 }
 
-#disclaimerText {
-    margin-top: 15px;
-    color: darkgray;
-    text-align: right;
-    font-size: 11px;
-}
 a {
     color: darkgray;
 }
@@ -45,8 +39,6 @@ a {
     font-weight: bold;
     text-align: center;
 }
-
-
 
 .mainDiv {
     width: 300px;
@@ -96,6 +88,13 @@ a {
     border-radius: 20px;
     border: none;
     font-size: 15px;
+}
+
+#disclaimerText {
+    margin-top: 15px;
+    color: darkgray;
+    text-align: right;
+    font-size: 11px;
 }
 
 #submitBtn:hover {
