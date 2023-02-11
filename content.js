@@ -4,7 +4,8 @@ let nextWeekButton = document.querySelector('[title="Volgende week"]');
 let otherButtons = document.querySelectorAll('.ui-button-text');
 
 function loadFullProcess() {
-    loadAllClassesForWeek();
+    //loadAllClassesForWeek();
+    addSubjectsToFilter();
 
 
 }
@@ -28,19 +29,32 @@ for(let i = 0; i < otherButtons.length; i++){
 }
 
 function addSubjectsToFilter(){
-    chrome.storage.sync.get(['SubjectsList']).then((result) => {
-        console.log("CURRENT subjets: " + JSON.stringify(result));
-    });
+    setTimeout(function(){
+        chrome.storage.sync.get(['SubjectsList']).then((result) => {
+            console.log("BINNENKOMEND RESULT: " + JSON.stringify(result[Object.keys(result)[0]]))
+            let waardes = Object.values(result[Object.keys(result)])
+            console.log("Waarde: " + JSON.stringify(waardes));
+
+            for(let i = 0; i < waardes.length; i++){
+                subjectsToFilter.push(waardes[i]);
+            }
+
+            console.log("CURRENT set in subjectsToFilter: " + JSON.stringify(subjectsToFilter));
+            loadAllClassesForWeek();
+        });
+    }, 2000)
+
 }
 
 function loadAllClassesForWeek() {
     setTimeout(function() {
         console.log("Chrome Extensie wordt herkend!");
 
-        chrome.storage.sync.get(['SubjectsList']).then((result) => {
-            subjectsToFilter.push(result.SubjectsList);
-            console.log("CURRENT set in subjectsToFilter: " + JSON.stringify(subjectsToFilter));
-        });
+        // see addSubjecgtsToFilter method
+        // chrome.storage.sync.get(['SubjectsList']).then((result) => {
+        //     subjectsToFilter.push(result.SubjectsList);
+        //     console.log("CURRENT set in subjectsToFilter: " + JSON.stringify(subjectsToFilter));
+        // });
 
         
         let allClassesForWeek = document.getElementsByClassName('wc-cal-event ui-corner-all');
@@ -48,17 +62,27 @@ function loadAllClassesForWeek() {
         removeSubjectFromTimetable(allClassesForWeek);
 
     }, 2000)
+
 }
 
-
+// probleem: subjectsToFilter.subjects.length werkt niet.
 function removeSubjectFromTimetable(allClasses){
-
-    for(let index = 0; index < subjectsToFilter.length; index++){
+    console.log("CURRENT set in REMOVE: " + JSON.stringify(subjectsToFilter));
+   let lengte = subjectsToFilter[0].length;
+   console.log("LENGTE: " + lengte)
+    for(let index = 0; index < lengte; index++){
+        console.log("index: " + index);
         for(let i = 0; i < allClasses.length; i++){
-            if(allClasses[i].innerText.includes(subjectsToFilter[index])){
+            console.log("i: " + i)
+            console.log("content: " + subjectsToFilter[0][index]);
+            console.log("Allclasses.innertext: " + allClasses[i].innerText)
+            if(allClasses[i].innerText.includes(subjectsToFilter[0][index])){
                 allClasses[i].remove();
+                console.log("Item REMOVED: " + allClasses[i])
             }
         }
     }
 }
+
+
 
