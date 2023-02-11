@@ -26,12 +26,25 @@ img {
 
 /* Custom CSS */
 body{
-    background-color: #C6002A;
+    background-color: whitesmoke;
+    color: #C6002A;
     margin: 15px;
 }
 
+.titleText {
+    font-weight: bold;
+    text-align: center;
+}
+
+#disclaimerText {
+    margin-top: 20px;
+    color: darkgray;
+    text-align: right;
+    font-size: 11px;
+}
+
 .mainDiv {
-    width: 275px;
+    width: 300px;
 }
 
 .textWhite {
@@ -40,4 +53,36 @@ body{
 
 .fontItalic {
     font-style: italic;
+}
+
+.explanationText {
+    color: black;
+}
+
+#firstSubject {
+    height: 35px;
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    font-size: 15px;
+}
+
+#submitBtn {
+    background-color: #C6002A;
+    color: white;
+    width: 85px;
+    height: 35px;
+    border-radius: 20px;
+    border: none;
+    font-size: 15px;
+    margin-left: 200px;
+}
+
+#submitBtn:hover {
+    background-color: #b00227;
+}
+
+#submitBtn:active {
+    background-color: #7d001b;
 }

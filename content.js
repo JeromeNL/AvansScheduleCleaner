@@ -3,7 +3,6 @@ let previousWeekButton = document.querySelector('[title="Vorige week"]');
 let nextWeekButton = document.querySelector('[title="Volgende week"]');
 let otherButtons = document.querySelectorAll('.ui-button-text');
 
-
 window.addEventListener("load", () => {
     startFilteringSubjects();
 });
