@@ -35,7 +35,7 @@ function startFilteringSubjects(){
             }
             loadAllClassesForWeek();
         });
-    }, 2000)
+    }, 100)
 }
 
 
@@ -43,7 +43,7 @@ function loadAllClassesForWeek() {
     setTimeout(function() {
         let allClassesForWeek = document.getElementsByClassName('wc-cal-event ui-corner-all');
         removeSubjectFromTimetable(allClassesForWeek);
-    }, 2000)
+    }, 500)
 }
 
 
