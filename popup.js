@@ -5,7 +5,7 @@ let allSubjects = {"subjects": []};
 addBtn.addEventListener('click', function() {
     const subjectInput = document.querySelector('#firstSubject').value;
     if(checkValidInput(subjectInput)){
-        addSubject(subjectInput)
+        addSubject(subjectInput);
     }
 });
 
@@ -14,8 +14,13 @@ clearBtn.addEventListener('click', function() {
         chrome.storage.sync.remove("SubjectsList", function () {
         });
     });
-
 });
+
+window.addEventListener('click',function(e){
+    if(e.target.href!==undefined){
+        chrome.tabs.create({url:e.target.href})
+    }
+})
 
     function addSubject(subjectString) {
         let storage = chrome.storage.sync;
@@ -50,14 +55,13 @@ clearBtn.addEventListener('click', function() {
             }
         }
             chrome.storage.sync.set({"SubjectsList": allSubjects}, function () {
-            chrome.storage.sync.get(['SubjectsList']).then((result) => {});
         });
     });
 }
 
     function checkValidInput(newInput){
         if(newInput == ""){
-            return false
+            return false;
         }
         return true;
     }

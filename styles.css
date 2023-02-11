@@ -31,17 +31,22 @@ body{
     margin: 15px;
 }
 
+#disclaimerText {
+    margin-top: 15px;
+    color: darkgray;
+    text-align: right;
+    font-size: 11px;
+}
+a {
+    color: darkgray;
+}
+
 .titleText {
     font-weight: bold;
     text-align: center;
 }
 
-#disclaimerText {
-    margin-top: 20px;
-    color: darkgray;
-    text-align: right;
-    font-size: 11px;
-}
+
 
 .mainDiv {
     width: 300px;

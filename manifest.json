@@ -1,9 +1,9 @@
 {
-  "name": "Avans Schedule Cleaner",
+  "name": "Schedule Cleaner for Avans",
   "description": "Filter the classes that are not relevant to you",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "manifest_version": 3,
-  "permissions": ["storage"],
+  "permissions": ["storage", "tabs"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
