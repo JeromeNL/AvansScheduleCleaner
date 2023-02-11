@@ -1,0 +1,114 @@
+/* CSS Reset */
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+
+ol, ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Custom CSS */
+body{
+    background-color: whitesmoke;
+    color: #C6002A;
+    margin: 15px;
+}
+
+a {
+    color: darkgray;
+}
+
+.titleText {
+    font-weight: bold;
+    text-align: center;
+}
+
+.mainDiv {
+    width: 300px;
+}
+
+.textWhite {
+    color: white;
+}
+
+.fontItalic {
+    font-style: italic;
+}
+
+.explanationText {
+    color: black;
+}
+
+#firstSubject {
+    height: 35px;
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    font-size: 15px;
+}
+
+.horizontalButtons {
+    display: inline-block;
+}
+
+#clearBtn {
+    background-color: #59becc;
+    color: white;
+    width: 85px;
+    height: 35px;
+    border-radius: 20px;
+    border: none;
+    font-size: 15px;
+    margin-right: 125px;
+}
+
+#submitBtn {
+    background-color: #C6002A;
+    color: white;
+    width: 85px;
+    height: 35px;
+    border-radius: 20px;
+    border: none;
+    font-size: 15px;
+}
+
+#disclaimerText {
+    margin-top: 15px;
+    color: darkgray;
+    text-align: right;
+    font-size: 11px;
+}
+
+#submitBtn:hover {
+    background-color: #b00227;
+}
+
+#submitBtn:active {
+    background-color: #7d001b;
+}
+
+#clearBtn:hover {
+    background-color: #42939e;
+}
+
+#clearBtn:active {
+    background-color: #306d75;
+}
