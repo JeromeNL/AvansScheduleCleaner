@@ -35,9 +35,8 @@ body.addEventListener("keypress", function(event) {
     function addSubject(subjectString) {
         let storage = chrome.storage.sync;
 
-        if(!checkValidInput(subjectString)){
-            return false;
-        }
+        if(!checkValidInput(subjectString)) return false;
+
         storage.get("SubjectsList", function (result) {
             if (result.SubjectsList != undefined) {
                 for(let i = 0; i < result.SubjectsList.subjects.length; i++){
@@ -74,9 +73,7 @@ body.addEventListener("keypress", function(event) {
 }
 
     function checkValidInput(newInput){
-        if(newInput == ""){
-            return false;
-        }
-        return true;
+        return (newInput == "") ? false : true;
     }
+
 

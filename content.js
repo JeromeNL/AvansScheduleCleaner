@@ -25,6 +25,7 @@ for(let i = 0; i < otherButtons.length; i++){
 
 function startFilteringSubjects(){
     setTimeout(function(){
+        console.log("Schedule Cleaner for Avans - Made by JeromeNL :)")
         chrome.storage.sync.get(['SubjectsList']).then((result) => {
             if(typeof result[Object.keys(result)[0]] == "undefined"){
                 return;
