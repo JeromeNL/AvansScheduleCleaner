@@ -15,6 +15,8 @@ nextWeekButton.addEventListener ('click', function(event) {
     startFilteringSubjects();
 });
 
+
+
 for(let i = 0; i < otherButtons.length; i++){
     otherButtons[i].addEventListener ('click', function(event) {
         startFilteringSubjects();
@@ -51,7 +53,7 @@ function removeSubjectFromTimetable(allClasses){
    let length = subjectsToFilter[0].length;
     for(let subject = 0; subject < length; subject++){
         for(let scheduleClass = 0; scheduleClass < allClasses.length; scheduleClass++){
-            if(allClasses[scheduleClass].innerText.includes(subjectsToFilter[0][subject].toUpperCase())){
+            if(allClasses[scheduleClass].innerText.toUpperCase().includes(subjectsToFilter[0][subject].toUpperCase())){
                 allClasses[scheduleClass].remove();
             }
         }

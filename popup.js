@@ -22,6 +22,17 @@ window.addEventListener('click',function(e){
     }
 })
 
+
+// add on enter hit, moet nog clear all cancellen
+addBtn.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        const subjectInput = document.querySelector('#firstSubject').value;
+        if(checkValidInput(subjectInput)){
+            addSubject(subjectInput);
+        }
+    }
+});
+
     function addSubject(subjectString) {
         let storage = chrome.storage.sync;
 
