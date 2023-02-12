@@ -1,12 +1,12 @@
 let addBtn = document.getElementById('submitBtn');
 let clearBtn = document.getElementById('clearBtn')
+let body = document.body;
 let allSubjects = {"subjects": []};
 
 addBtn.addEventListener('click', function() {
     const subjectInput = document.querySelector('#firstSubject').value;
-    if(checkValidInput(subjectInput)){
         addSubject(subjectInput);
-    }
+
 });
 
 clearBtn.addEventListener('click', function() {
@@ -22,13 +22,12 @@ window.addEventListener('click',function(e){
     }
 })
 
-
-// add on enter hit, moet nog clear all cancellen
-addBtn.addEventListener("keypress", function(event) {
+body.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
+        event.preventDefault()
         const subjectInput = document.querySelector('#firstSubject').value;
-        if(checkValidInput(subjectInput)){
-            addSubject(subjectInput);
+        if(addSubject(subjectInput)){
+            document.querySelector('#firstSubject').value = "";
         }
     }
 });
@@ -36,6 +35,9 @@ addBtn.addEventListener("keypress", function(event) {
     function addSubject(subjectString) {
         let storage = chrome.storage.sync;
 
+        if(!checkValidInput(subjectString)){
+            return false;
+        }
         storage.get("SubjectsList", function (result) {
             if (result.SubjectsList != undefined) {
                 for(let i = 0; i < result.SubjectsList.subjects.length; i++){
@@ -48,6 +50,7 @@ addBtn.addEventListener("keypress", function(event) {
                     chrome.storage.sync.get(['SubjectsList']).then((result) => {});
                 });
         });
+        return true;
     }
 
     function removeSubject(subjectString) {
@@ -76,3 +79,4 @@ addBtn.addEventListener("keypress", function(event) {
         }
         return true;
     }
+

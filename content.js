@@ -16,7 +16,6 @@ nextWeekButton.addEventListener ('click', function(event) {
 });
 
 
-
 for(let i = 0; i < otherButtons.length; i++){
     otherButtons[i].addEventListener ('click', function(event) {
         startFilteringSubjects();
@@ -50,6 +49,9 @@ function loadAllClassesForWeek() {
 
 
 function removeSubjectFromTimetable(allClasses){
+    if(allClasses.length < 1 || subjectsToFilter[0].length < 1 ){
+        return
+    }
    let length = subjectsToFilter[0].length;
     for(let subject = 0; subject < length; subject++){
         for(let scheduleClass = 0; scheduleClass < allClasses.length; scheduleClass++){
