@@ -15,6 +15,7 @@ nextWeekButton.addEventListener ('click', function(event) {
     startFilteringSubjects();
 });
 
+
 for(let i = 0; i < otherButtons.length; i++){
     otherButtons[i].addEventListener ('click', function(event) {
         startFilteringSubjects();
@@ -24,6 +25,7 @@ for(let i = 0; i < otherButtons.length; i++){
 
 function startFilteringSubjects(){
     setTimeout(function(){
+        console.log("Schedule Cleaner for Avans - Made by JeromeNL :)")
         chrome.storage.sync.get(['SubjectsList']).then((result) => {
             if(typeof result[Object.keys(result)[0]] == "undefined"){
                 return;
@@ -48,10 +50,13 @@ function loadAllClassesForWeek() {
 
 
 function removeSubjectFromTimetable(allClasses){
+    if(allClasses.length < 1 || subjectsToFilter[0].length < 1 ){
+        return
+    }
    let length = subjectsToFilter[0].length;
     for(let subject = 0; subject < length; subject++){
         for(let scheduleClass = 0; scheduleClass < allClasses.length; scheduleClass++){
-            if(allClasses[scheduleClass].innerText.includes(subjectsToFilter[0][subject].toUpperCase())){
+            if(allClasses[scheduleClass].innerText.toUpperCase().includes(subjectsToFilter[0][subject].toUpperCase())){
                 allClasses[scheduleClass].remove();
             }
         }

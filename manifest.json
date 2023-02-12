@@ -1,7 +1,7 @@
 {
   "name": "Schedule Cleaner for Avans",
   "description": "Filter the classes that are not relevant to you",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "manifest_version": 3,
   "permissions": ["storage", "tabs"],
   "action": {

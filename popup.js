@@ -1,12 +1,12 @@
 let addBtn = document.getElementById('submitBtn');
 let clearBtn = document.getElementById('clearBtn')
+let body = document.body;
 let allSubjects = {"subjects": []};
 
 addBtn.addEventListener('click', function() {
     const subjectInput = document.querySelector('#firstSubject').value;
-    if(checkValidInput(subjectInput)){
         addSubject(subjectInput);
-    }
+
 });
 
 clearBtn.addEventListener('click', function() {
@@ -22,8 +22,20 @@ window.addEventListener('click',function(e){
     }
 })
 
+body.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault()
+        const subjectInput = document.querySelector('#firstSubject').value;
+        if(addSubject(subjectInput)){
+            document.querySelector('#firstSubject').value = "";
+        }
+    }
+});
+
     function addSubject(subjectString) {
         let storage = chrome.storage.sync;
+
+        if(!checkValidInput(subjectString)) return false;
 
         storage.get("SubjectsList", function (result) {
             if (result.SubjectsList != undefined) {
@@ -37,6 +49,7 @@ window.addEventListener('click',function(e){
                     chrome.storage.sync.get(['SubjectsList']).then((result) => {});
                 });
         });
+        return true;
     }
 
     function removeSubject(subjectString) {
@@ -60,8 +73,7 @@ window.addEventListener('click',function(e){
 }
 
     function checkValidInput(newInput){
-        if(newInput == ""){
-            return false;
-        }
-        return true;
+        return (newInput == "") ? false : true;
     }
+
+
