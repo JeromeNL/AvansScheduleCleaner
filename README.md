@@ -2,6 +2,8 @@
 
 Filter the classes that are not relevant to you from your schedule on rooster.avans.nl. 
 
+Add this Extension for free to your Chrome browser via the Chrome Store: <a href="https://chrome.google.com/webstore/detail/schedule-cleaner-for-avan/cbpdkcajahmaofnkjnjjmfmojnbfadim?hl=nl" target="_blank">Link</a>
+
 <a href="https://imgbox.com/ArSANVLm" target="_blank"><img src="https://thumbs2.imgbox.com/41/62/ArSANVLm_t.png" alt="image host" width="400" height="400" /></a>
 
 </hr>
